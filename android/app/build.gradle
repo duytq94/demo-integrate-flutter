@@ -34,22 +34,24 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-        profile {
-            initWith debug
-        }
+        // For Option A - Depend on the Android Archive (AAR)
+//        profile {
+//            initWith debug
+//        }
     }
     compileOptions {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
     }
-    repositories {
-        maven {
-            url '../../duy_flutter_module/build/host/outputs/repo'
-        }
-        maven {
-            url 'http://download.flutter.io'
-        }
-    }
+    // For Option A - Depend on the Android Archive (AAR)
+//    repositories {
+//        maven {
+//            url '../../duy_flutter_module/build/host/outputs/repo'
+//        }
+//        maven {
+//            url 'http://download.flutter.io'
+//        }
+//    }
 }
 
 dependencies {
@@ -60,12 +62,14 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    // This line is added automatically when add flutter module and will cause duplicate BuildConfig issue
-    // implementation project(path: ':flutter')
+    // For Option B - Depend on the module’s source code
+    implementation project(path: ':flutter')
 
-    debugImplementation 'com.example.duyfluttermodule:flutter_debug:1.0'
-    profileImplementation 'com.example.duyfluttermodule:flutter_profile:1.0'
-    releaseImplementation 'com.example.duyfluttermodule:flutter_release:1.0'
+    // For Option A - Depend on the Android Archive (AAR)
+//    debugImplementation 'com.example.duyfluttermodule:flutter_debug:1.0'
+//    profileImplementation 'com.example.duyfluttermodule:flutter_profile:1.0'
+//    releaseImplementation 'com.example.duyfluttermodule:flutter_release:1.0'
+
     implementation "androidx.core:core-ktx:+"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
