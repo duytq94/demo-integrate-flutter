@@ -20,3 +20,6 @@ These method requires every developer working on the project to have a locally i
 * Go to ./ios folder 
 * Run `pod install` command
 * Open .xcworkspace file to run the app by Xcode
+
+## Demo
+https://youtu.be/rEfIceRjEvs
