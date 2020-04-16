@@ -1,0 +1,28 @@
+PODS:
+  - duyfluttermodule (0.0.1):
+    - Flutter
+  - Flutter (1.0.0)
+  - FlutterPluginRegistrant (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - duyfluttermodule (from `../duy_flutter_module/.ios/Flutter`)
+  - Flutter (from `../duy_flutter_module/.ios/Flutter/engine`)
+  - FlutterPluginRegistrant (from `../duy_flutter_module/.ios/Flutter/FlutterPluginRegistrant`)
+
+EXTERNAL SOURCES:
+  duyfluttermodule:
+    :path: "../duy_flutter_module/.ios/Flutter"
+  Flutter:
+    :path: "../duy_flutter_module/.ios/Flutter/engine"
+  FlutterPluginRegistrant:
+    :path: "../duy_flutter_module/.ios/Flutter/FlutterPluginRegistrant"
+
+SPEC CHECKSUMS:
+  duyfluttermodule: 7b49499fc1deb1511bf6fe62b7d911c5cec94c2b
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  FlutterPluginRegistrant: d59dd07dd90e9c6430996073575a5bd1ea19677e
+
+PODFILE CHECKSUM: 8236c1c46c07bb6919e69bb6a4c7722ec82f21d6
+
+COCOAPODS: 1.9.1

@@ -1,0 +1,10 @@
+rootProject.name='Demo Integrate Flutter'
+include ':app'
+setBinding(new Binding([gradle: this]))
+evaluate(new File(
+  settingsDir,
+  '../duy_flutter_module/.android/include_flutter.groovy'
+))
+
+include ':duy_flutter_module'
+project(':duy_flutter_module').projectDir = new File('../duy_flutter_module')
