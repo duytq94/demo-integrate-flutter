@@ -1,14 +1,14 @@
-rootProject.name='Demo Integrate Flutter'
+rootProject.name = 'Demo Integrate Flutter'
 include ':app'
 
 // For Option B - Depend on the module’s source code
 setBinding(new Binding([gradle: this]))
 evaluate(new File(
-  settingsDir,
-  '../duy_flutter_module/.android/include_flutter.groovy'
+        settingsDir,
+        '../duy_flutter_module/.android/include_flutter.groovy'
 ))
 
 // For Option B - Depend on the module’s source code
-// Auto adding after sync gradle
+// Auto add after sync gradle
 include ':duy_flutter_module'
 project(':duy_flutter_module').projectDir = new File('../duy_flutter_module')

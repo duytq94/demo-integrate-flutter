@@ -35,24 +35,25 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         // For Option A - Depend on the Android Archive (AAR)
-//        profile {
-//            initWith debug
-//        }
+        profile {
+            initWith debug
+        }
     }
     compileOptions {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
     }
-    // For Option A - Depend on the Android Archive (AAR)
-//    repositories {
-//        maven {
-//            url '../../duy_flutter_module/build/host/outputs/repo'
-//        }
-//        maven {
-//            url 'http://download.flutter.io'
-//        }
-//    }
 }
+
+// For Option A - Depend on the Android Archive (AAR)
+//repositories {
+//    maven {
+//        url '../../duy_flutter_module/build/host/outputs/repo'
+//    }
+//    maven {
+//        url 'http://download.flutter.io'
+//    }
+//}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
