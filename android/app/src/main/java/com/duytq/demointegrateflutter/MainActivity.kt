@@ -7,20 +7,20 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setContentView(R.layout.activity_main)
 
-        btnSend.setOnClickListener {
-            sendDataToFlutterModule(edt.text.toString())
-        }
+    btnSend.setOnClickListener {
+      sendDataToFlutterModule(edt.text.toString())
     }
+  }
 
-    private fun sendDataToFlutterModule(param: String) {
-        val intent = Intent(this, FlutterViewActivity::class.java)
-        intent.putExtra("param", param)
-        startActivity(intent)
-    }
+  private fun sendDataToFlutterModule(param: String) {
+    val intent = Intent(this, FlutterViewActivity::class.java)
+    intent.putExtra("param", param)
+    startActivity(intent)
+  }
 
 }
 

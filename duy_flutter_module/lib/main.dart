@@ -27,6 +27,20 @@ class _MyHomePageState extends State<MyHomePage> {
   String _batteryLevel = 'Unknown battery level';
   String _param = "Unknow param";
 
+  @override
+  void initState() {
+    super.initState();
+    platform.setMethodCallHandler(_triggerFromNative);
+  }
+
+  Future<void> _triggerFromNative(MethodCall call) async {
+    if (call.method == "notifyNavToFlutter") {
+      print("Trigger to notify navigate to Flutter");
+    } else {
+      print("Another trigger from native");
+    }
+  }
+
   Future<void> _getBatteryLevel() async {
     String batteryLevel;
     try {

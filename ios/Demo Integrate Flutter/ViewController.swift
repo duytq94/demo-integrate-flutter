@@ -4,25 +4,25 @@ import Flutter
 class ViewController: UIViewController {
     var flutterEngine: FlutterEngine!
     var flutterViewController: FlutterViewController!
-        
+    var flutterChannel: FlutterMethodChannel!
+    
     @IBOutlet weak var tfString: UITextField!
     
     @IBAction func btnGoFlutter(_ sender: Any) {
-        flutterEngine = (UIApplication.shared.delegate as! AppDelegate).flutterEngine
-        flutterViewController = FlutterViewController(engine: flutterEngine, nibName: nil, bundle: nil)
         flutterViewController.modalPresentationStyle = .fullScreen
+        flutterChannel.invokeMethod("notifyNavToFlutter", arguments: nil)
         present(flutterViewController, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        
         flutterEngine = (UIApplication.shared.delegate as! AppDelegate).flutterEngine
-        flutterViewController =
-            FlutterViewController(engine: flutterEngine, nibName: nil, bundle: nil)
-        let batteryChannel = FlutterMethodChannel(name: "com.duytq.demointegrateflutter",
+        flutterViewController = FlutterViewController(engine: flutterEngine, nibName: nil, bundle: nil)
+        flutterChannel = FlutterMethodChannel(name: "com.duytq.demointegrateflutter",
                                                   binaryMessenger: flutterViewController.binaryMessenger)
-        batteryChannel.setMethodCallHandler({
+        flutterChannel.setMethodCallHandler({
             [weak self] (call: FlutterMethodCall, result: FlutterResult) -> Void in
             switch call.method {
             case "getBatteryLevel":

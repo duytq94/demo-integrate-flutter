@@ -23,3 +23,9 @@ These method requires every developer working on the project to have a locally i
 
 ## Demo
 https://youtu.be/rEfIceRjEvs
+
+## Note about Caching and Pre-warm FlutterEngine
+* Cache help you load Flutter faster from the 2nd onwards
+* Pre-warm help you warm up a FlutterEngine before arriving
+* But pre-warm execute entire your flutter screen (initState, build...), so if you need some param from native code before doing an action in flutter (e.g. get accessToken from native to load data from api in dart) you can't put your fetch api function in initState as normal
+* At this time, you need a trigger from native code to execute fetch api function in dart (invoke in MethodChannel from native code and setMethodCallHandler in dart code to do this)
