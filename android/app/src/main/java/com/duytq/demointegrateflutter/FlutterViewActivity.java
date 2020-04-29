@@ -16,8 +16,17 @@ import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.FlutterEngineCache;
 import io.flutter.plugin.common.MethodChannel;
 
+import static com.duytq.demointegrateflutter.MainApplicationKt.ENGINE_ID;
+
 public class FlutterViewActivity extends FlutterActivity {
   private static final String CHANNEL = "com.duytq.demointegrateflutter";
+
+  @Override
+  protected void onResume() {
+    super.onResume();
+    new MethodChannel(FlutterEngineCache.getInstance().get(ENGINE_ID).getDartExecutor().getBinaryMessenger(), CHANNEL)
+        .invokeMethod("notifyNavToFlutter", getIntent().getStringExtra("screen"));
+  }
 
   @Override
   public void configureFlutterEngine(@NonNull FlutterEngine flutterEngine) {
@@ -44,14 +53,12 @@ public class FlutterViewActivity extends FlutterActivity {
               }
             }
         );
-    new MethodChannel(flutterEngine.getDartExecutor().getBinaryMessenger(), CHANNEL)
-        .invokeMethod("notifyNavToFlutter", null);
   }
 
   @Nullable
   @Override
   public FlutterEngine provideFlutterEngine(@NonNull Context context) {
-    return FlutterEngineCache.getInstance().get("my_engine_id");
+    return FlutterEngineCache.getInstance().get(ENGINE_ID);
   }
 
   private int getBatteryLevel() {
@@ -60,10 +67,8 @@ public class FlutterViewActivity extends FlutterActivity {
       BatteryManager batteryManager = (BatteryManager) getSystemService(BATTERY_SERVICE);
       batteryLevel = batteryManager.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);
     } else {
-      Intent intent = new ContextWrapper(getApplicationContext()).
-          registerReceiver(null, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
-      batteryLevel = (intent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1) * 100) /
-          intent.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
+      Intent intent = new ContextWrapper(getApplicationContext()).registerReceiver(null, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+      batteryLevel = (intent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1) * 100) / intent.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
     }
 
     return batteryLevel;

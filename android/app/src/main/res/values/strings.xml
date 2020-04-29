@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Demo Integrate Flutter</string>
+    <string-array name="screens">
+        <item>HOME</item>
+        <item>DETAIL</item>
+    </string-array>
 </resources>

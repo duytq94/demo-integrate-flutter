@@ -35,9 +35,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         // For Option A - Depend on the Android Archive (AAR)
-        profile {
-            initWith debug
-        }
+//        profile {
+//            initWith debug
+//        }
     }
     compileOptions {
         sourceCompatibility = 1.8
