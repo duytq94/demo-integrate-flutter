@@ -19,7 +19,8 @@ class _RootPageState extends State<RootPage> {
   static const HOME = "HOME";
   static const DETAIL = "DETAIL";
 
-  Widget currentScreen;
+  Widget currentScreen = Container(child: Center(child: Text('No input from native')));
+  String title = "Default Page";
 
   @override
   void initState() {
@@ -29,6 +30,7 @@ class _RootPageState extends State<RootPage> {
 
   Future<void> _triggerFromNative(MethodCall call) async {
     if (call.method == "notifyNavToFlutter") {
+      print("duyduy _triggerFromNative notifyNavToFlutter");
       // Set transparent status bar
       // Not place in build method because it won't work from the second times navigate to Flutter
       SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -37,11 +39,13 @@ class _RootPageState extends State<RootPage> {
       switch (call.arguments) {
         case HOME:
           setState(() {
+            title = "Home Page";
             currentScreen = HomePage();
           });
           break;
         case DETAIL:
           setState(() {
+            title = "Detai Page";
             currentScreen = DetailPage();
           });
           break;
@@ -51,8 +55,23 @@ class _RootPageState extends State<RootPage> {
     }
   }
 
+  void _exitFlutter() {
+    PlatformChannel.invokeMethod('exitFlutter');
+  }
+
   @override
   Widget build(BuildContext context) {
-    return currentScreen;
+    print("duyduy build RootPage");
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(title),
+        centerTitle: true,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: _exitFlutter,
+        ),
+      ),
+      body: currentScreen,
+    );
   }
 }

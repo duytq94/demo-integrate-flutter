@@ -45,38 +45,24 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  void _exitFlutter() {
-    PlatformChannel.invokeMethod('exitFlutter');
-  }
-
   @override
   Widget build(BuildContext context) {
     print("duyduy build HomePage");
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Home page"),
-        centerTitle: true,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: _exitFlutter,
-        ),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            RaisedButton(
-              child: Text('Get Battery Level'),
-              onPressed: _getBatteryLevel,
-            ),
-            Text(_batteryLevel),
-            RaisedButton(
-              child: Text('Get Param'),
-              onPressed: _getParam,
-            ),
-            Text(_param.toString()),
-          ],
-        ),
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          RaisedButton(
+            child: Text('Get Battery Level'),
+            onPressed: _getBatteryLevel,
+          ),
+          Text(_batteryLevel),
+          RaisedButton(
+            child: Text('Get Param'),
+            onPressed: _getParam,
+          ),
+          Text(_param.toString()),
+        ],
       ),
     );
   }
