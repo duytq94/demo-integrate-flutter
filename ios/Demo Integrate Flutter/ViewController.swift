@@ -6,11 +6,25 @@ class ViewController: UIViewController {
     var flutterViewController: FlutterViewController!
     var flutterChannel: FlutterMethodChannel!
     
+    var screenChose: String! = "HOME"
+    
     @IBOutlet weak var tfString: UITextField!
+    
+    @IBAction func onTapSegment(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            screenChose = "HOME"
+            break
+        case 1:
+            screenChose = "DETAIL"
+        default:
+            break
+        }
+    }
     
     @IBAction func btnGoFlutter(_ sender: Any) {
         flutterViewController.modalPresentationStyle = .fullScreen
-        flutterChannel.invokeMethod("notifyNavToFlutter", arguments: nil)
+        flutterChannel.invokeMethod("notifyNavToFlutter", arguments: screenChose)
         present(flutterViewController, animated: true, completion: nil)
     }
     
