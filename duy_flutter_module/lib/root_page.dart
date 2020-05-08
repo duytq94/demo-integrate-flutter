@@ -29,6 +29,11 @@ class _RootPageState extends State<RootPage> {
 
   Future<void> _triggerFromNative(MethodCall call) async {
     if (call.method == "notifyNavToFlutter") {
+      // Set transparent status bar
+      // Not place in build method because it won't work from the second times navigate to Flutter
+      SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+      ));
       switch (call.arguments) {
         case HOME:
           setState(() {
