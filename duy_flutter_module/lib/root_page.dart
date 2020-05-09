@@ -45,7 +45,7 @@ class _RootPageState extends State<RootPage> {
           break;
         case DETAIL:
           setState(() {
-            title = "Detai Page";
+            title = "Detail Page";
             currentScreen = DetailPage();
           });
           break;
