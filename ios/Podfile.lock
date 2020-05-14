@@ -1,28 +1,16 @@
 PODS:
-  - duyfluttermodule (0.0.1):
-    - Flutter
-  - Flutter (1.0.0)
-  - FlutterPluginRegistrant (0.0.1):
-    - Flutter
+  - Flutter (1.17.0)
 
 DEPENDENCIES:
-  - duyfluttermodule (from `../duy_flutter_module/.ios/Flutter`)
-  - Flutter (from `../duy_flutter_module/.ios/Flutter/engine`)
-  - FlutterPluginRegistrant (from `../duy_flutter_module/.ios/Flutter/FlutterPluginRegistrant`)
+  - Flutter (from `../duy_flutter_module/build/ios/framework/Debug/Flutter.podspec`)
 
 EXTERNAL SOURCES:
-  duyfluttermodule:
-    :path: "../duy_flutter_module/.ios/Flutter"
   Flutter:
-    :path: "../duy_flutter_module/.ios/Flutter/engine"
-  FlutterPluginRegistrant:
-    :path: "../duy_flutter_module/.ios/Flutter/FlutterPluginRegistrant"
+    :podspec: "../duy_flutter_module/build/ios/framework/Debug/Flutter.podspec"
 
 SPEC CHECKSUMS:
-  duyfluttermodule: 7b49499fc1deb1511bf6fe62b7d911c5cec94c2b
-  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
-  FlutterPluginRegistrant: d59dd07dd90e9c6430996073575a5bd1ea19677e
+  Flutter: 0c32471ed183869f11c66af950af994e32ff9afd
 
-PODFILE CHECKSUM: 8236c1c46c07bb6919e69bb6a4c7722ec82f21d6
+PODFILE CHECKSUM: d21c6d232a5e9492452a6a4f03985a1ea20c4c85
 
 COCOAPODS: 1.9.1

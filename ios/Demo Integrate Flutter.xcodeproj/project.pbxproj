@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,8 @@
 		0019A235243DBF20007EBAAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0019A233243DBF20007EBAAB /* LaunchScreen.storyboard */; };
 		0019A240243DBF21007EBAAB /* Demo_Integrate_FlutterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0019A23F243DBF21007EBAAB /* Demo_Integrate_FlutterTests.swift */; };
 		0019A24B243DBF21007EBAAB /* Demo_Integrate_FlutterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0019A24A243DBF21007EBAAB /* Demo_Integrate_FlutterUITests.swift */; };
+		00C7BC9E246D4A4F00B17C5A /* App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C7BC9C246D4A3E00B17C5A /* App.framework */; };
+		00C7BC9F246D4A4F00B17C5A /* App.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00C7BC9C246D4A3E00B17C5A /* App.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		520B411E3DD00DE6CF8F34F5 /* Pods_Demo_Integrate_FlutterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33585A532B40948715679281 /* Pods_Demo_Integrate_FlutterTests.framework */; };
 		690645F06DCF6D5EB14AF09E /* Pods_Demo_Integrate_Flutter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 283A6EC39A0AF60B09C662BE /* Pods_Demo_Integrate_Flutter.framework */; };
 		B910039E049C075A686AEE54 /* Pods_Demo_Integrate_Flutter_Demo_Integrate_FlutterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C60A2658B1015FFAD43C1BC9 /* Pods_Demo_Integrate_Flutter_Demo_Integrate_FlutterUITests.framework */; };
@@ -37,6 +39,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		00C7BCA0246D4A4F00B17C5A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				00C7BC9F246D4A4F00B17C5A /* App.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0019A225243DBF1E007EBAAB /* Demo Integrate Flutter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Demo Integrate Flutter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0019A228243DBF1E007EBAAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -52,6 +68,7 @@
 		0019A246243DBF21007EBAAB /* Demo Integrate FlutterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Demo Integrate FlutterUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0019A24A243DBF21007EBAAB /* Demo_Integrate_FlutterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo_Integrate_FlutterUITests.swift; sourceTree = "<group>"; };
 		0019A24C243DBF21007EBAAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00C7BC9C246D4A3E00B17C5A /* App.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = App.framework; path = "../duy_flutter_module/build/ios/framework/$(CONFIGURATION)/App.framework"; sourceTree = "<group>"; };
 		13C46E633A8F2C7D248E1B29 /* Pods-Demo Integrate FlutterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo Integrate FlutterTests.release.xcconfig"; path = "Target Support Files/Pods-Demo Integrate FlutterTests/Pods-Demo Integrate FlutterTests.release.xcconfig"; sourceTree = "<group>"; };
 		1636C315A0E87719F00C3238 /* Pods-Demo Integrate Flutter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo Integrate Flutter.release.xcconfig"; path = "Target Support Files/Pods-Demo Integrate Flutter/Pods-Demo Integrate Flutter.release.xcconfig"; sourceTree = "<group>"; };
 		1D8B490254C9F8A25FECF146 /* Pods-Demo Integrate Flutter-Demo Integrate FlutterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo Integrate Flutter-Demo Integrate FlutterUITests.release.xcconfig"; path = "Target Support Files/Pods-Demo Integrate Flutter-Demo Integrate FlutterUITests/Pods-Demo Integrate Flutter-Demo Integrate FlutterUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -68,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00C7BC9E246D4A4F00B17C5A /* App.framework in Frameworks */,
 				690645F06DCF6D5EB14AF09E /* Pods_Demo_Integrate_Flutter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -148,6 +166,7 @@
 		9618AED04302C5042F751782 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				00C7BC9C246D4A3E00B17C5A /* App.framework */,
 				283A6EC39A0AF60B09C662BE /* Pods_Demo_Integrate_Flutter.framework */,
 				C60A2658B1015FFAD43C1BC9 /* Pods_Demo_Integrate_Flutter_Demo_Integrate_FlutterUITests.framework */,
 				33585A532B40948715679281 /* Pods_Demo_Integrate_FlutterTests.framework */,
@@ -165,7 +184,6 @@
 				47BB588468F3CB22FED36464 /* Pods-Demo Integrate FlutterTests.debug.xcconfig */,
 				13C46E633A8F2C7D248E1B29 /* Pods-Demo Integrate FlutterTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -177,11 +195,11 @@
 			buildConfigurationList = 0019A24F243DBF21007EBAAB /* Build configuration list for PBXNativeTarget "Demo Integrate Flutter" */;
 			buildPhases = (
 				BFEDF10B1450BC9ED7D48EE9 /* [CP] Check Pods Manifest.lock */,
-				D496036BBB7EC1B71231F5D3 /* [CP-User] Run Flutter Build Script */,
 				0019A221243DBF1E007EBAAB /* Sources */,
 				0019A222243DBF1E007EBAAB /* Frameworks */,
 				0019A223243DBF1E007EBAAB /* Resources */,
 				30E4CC1468779500D08C13A8 /* [CP] Embed Pods Frameworks */,
+				00C7BCA0246D4A4F00B17C5A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -384,22 +402,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D496036BBB7EC1B71231F5D3 /* [CP-User] Run Flutter Build Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/../duy_flutter_module/.metadata",
-				"${SRCROOT}/../duy_flutter_module/.ios/Flutter/App.framework/App",
-				"${SRCROOT}/../duy_flutter_module/.ios/Flutter/engine/Flutter.framework/Flutter",
-				"${SRCROOT}/../duy_flutter_module/.ios/Flutter/flutter_export_environment.sh",
-			);
-			name = "[CP-User] Run Flutter Build Script";
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "set -e\nset -u\nsource \"${SRCROOT}/../duy_flutter_module/.ios/Flutter/flutter_export_environment.sh\"\n\"$FLUTTER_ROOT\"/packages/flutter_tools/bin/xcode_backend.sh build";
-		};
 		D73C49F01C6B598767166022 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -601,6 +603,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FlutterPluginRegistrant\"",
+					"$(PROJECT_DIR)/../duy_flutter_module/build/ios/framework/$(CONFIGURATION)/",
+				);
 				INFOPLIST_FILE = "Demo Integrate Flutter/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -619,6 +626,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FlutterPluginRegistrant\"",
+					"$(PROJECT_DIR)/../duy_flutter_module/build/ios/framework/$(CONFIGURATION)/",
+				);
 				INFOPLIST_FILE = "Demo Integrate Flutter/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

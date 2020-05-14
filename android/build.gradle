@@ -21,6 +21,9 @@ allprojects {
     repositories {
         google()
         jcenter()
+
+        // For Option A - Depend on the Android Archive (AAR)
+        // All module (app, myflutter) need these repositories so put here instead of each module's build.gradle
         maven {
             url "$project.rootDir/../duy_flutter_module/build/host/outputs/repo"
         }

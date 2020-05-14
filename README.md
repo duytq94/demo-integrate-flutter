@@ -3,10 +3,10 @@
 ## Description
 Demo add Flutter to existing Android and iOS native apps.<br/>
 There are mutiple options to embed flutter module in existing app and I'll choose:<br/>
-* iOS: Option A - Embed with CocoaPods and the Flutter SDK
-* Android: Option B - Depend on the module’s source code<br/>
+* iOS: Option C - Embed application and plugin frameworks in Xcode and Flutter framework with CocoaPods
+* Android: Option A - Depend on the Android Archive (AAR)<br/>
 
-These method requires every developer working on the project to have a locally installed version of the Flutter SDK but it allows rapid iteration with the most up-to-date version of your Flutter module without running additional commands.
+These method don't requires other developer working on the project to have a locally installed version of the Flutter SDK to run the project.
 
 ## How to run
 * Clone this repository.

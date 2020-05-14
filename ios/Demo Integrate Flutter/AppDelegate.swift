@@ -1,6 +1,5 @@
 import UIKit
 import Flutter
-import FlutterPluginRegistrant
 
 @UIApplicationMain
 class AppDelegate: FlutterAppDelegate {
@@ -10,7 +9,6 @@ class AppDelegate: FlutterAppDelegate {
         // Pre-warm flutter
         flutterEngine.run();
         
-        GeneratedPluginRegistrant.register(with: self.flutterEngine);
         return super.application(application, didFinishLaunchingWithOptions: launchOptions);
     }
 }
