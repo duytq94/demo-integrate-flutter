@@ -1,4 +1,4 @@
-package com.duytq.demointegrateflutter;
+package com.example.myflutter;
 
 import android.content.Context;
 import android.content.ContextWrapper;
@@ -14,17 +14,17 @@ import androidx.annotation.Nullable;
 import io.flutter.embedding.android.FlutterActivity;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.FlutterEngineCache;
+import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 
-import static com.duytq.demointegrateflutter.MainApplicationKt.ENGINE_ID;
 
-public class FlutterViewActivity extends FlutterActivity {
+public class MyFlutterActivity extends FlutterActivity {
   private static final String CHANNEL = "com.duytq.demointegrateflutter";
 
   @Override
   protected void onResume() {
     super.onResume();
-    new MethodChannel(FlutterEngineCache.getInstance().get(ENGINE_ID).getDartExecutor().getBinaryMessenger(), CHANNEL)
+    new MethodChannel(FlutterEngineCache.getInstance().get("demointegrateflutter").getDartExecutor().getBinaryMessenger(), CHANNEL)
         .invokeMethod("notifyNavToFlutter", getIntent().getStringExtra("screen"));
   }
 
@@ -32,24 +32,27 @@ public class FlutterViewActivity extends FlutterActivity {
   public void configureFlutterEngine(@NonNull FlutterEngine flutterEngine) {
     new MethodChannel(flutterEngine.getDartExecutor().getBinaryMessenger(), CHANNEL)
         .setMethodCallHandler(
-            (call, result) -> {
-              switch (call.method) {
-                case "getBatteryLevel":
-                  int batteryLevel = getBatteryLevel();
-                  if (batteryLevel != -1) {
-                    result.success(batteryLevel);
-                  } else {
-                    result.error("UNAVAILABLE", "Battery level not available.", null);
-                  }
-                  break;
-                case "getParam":
-                  result.success(getIntent().getStringExtra("param"));
-                  break;
-                case "exitFlutter":
-                  finish();
-                  break;
-                default:
-                  result.notImplemented();
+            new MethodChannel.MethodCallHandler() {
+              @Override
+              public void onMethodCall(MethodCall call, MethodChannel.Result result) {
+                switch (call.method) {
+                  case "getBatteryLevel":
+                    int batteryLevel = MyFlutterActivity.this.getBatteryLevel();
+                    if (batteryLevel != -1) {
+                      result.success(batteryLevel);
+                    } else {
+                      result.error("UNAVAILABLE", "Battery level not available.", null);
+                    }
+                    break;
+                  case "getParam":
+                    result.success(MyFlutterActivity.this.getIntent().getStringExtra("param"));
+                    break;
+                  case "exitFlutter":
+                    MyFlutterActivity.this.finish();
+                    break;
+                  default:
+                    result.notImplemented();
+                }
               }
             }
         );
@@ -58,7 +61,7 @@ public class FlutterViewActivity extends FlutterActivity {
   @Nullable
   @Override
   public FlutterEngine provideFlutterEngine(@NonNull Context context) {
-    return FlutterEngineCache.getInstance().get(ENGINE_ID);
+    return FlutterEngineCache.getInstance().get("demointegrateflutter");
   }
 
   private int getBatteryLevel() {

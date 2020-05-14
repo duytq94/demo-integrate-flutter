@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
+import com.example.myflutter.MyFlutterActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -35,7 +36,7 @@ class MainActivity : AppCompatActivity() {
   }
 
   private fun sendDataToFlutterModule(param: String, screen: String) {
-    val intent = Intent(this, FlutterViewActivity::class.java)
+    val intent = Intent(this, MyFlutterActivity::class.java)
     intent.putExtra("param", param)
     intent.putExtra("screen", screen)
     startActivity(intent)
