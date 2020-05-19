@@ -7,14 +7,19 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myflutter.MyFlutterActivity
+import io.flutter.embedding.engine.FlutterEngine
+import io.flutter.embedding.engine.dart.DartExecutor
+import io.flutter.plugin.common.MethodChannel
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+  private val CHANNEL = "com.duytq.demointegrateflutter"
+  private var flutterEngine: FlutterEngine? = null
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
-
+    setUpFlutter()
     var screenChose = ""
 
     val screens = resources.getStringArray(R.array.screens)
@@ -29,10 +34,36 @@ class MainActivity : AppCompatActivity() {
         screenChose = screens[position]
       }
     }
-
     btnSend.setOnClickListener {
       sendDataToFlutterModule(edt.text.toString(), screenChose)
     }
+  }
+
+  private fun setUpFlutter() {
+    if (flutterEngine == null) {
+      // Use new engine instead of cache engine from MainApplication
+      // Use the same engine will cause some wrong behavior like can't interact, wrong size flutter view
+      flutterEngine = FlutterEngine(this)
+      flutterEngine!!
+          .dartExecutor
+          .executeDartEntrypoint(
+              DartExecutor.DartEntrypoint.createDefault()
+          )
+    }
+    flutter_view!!.attachToFlutterEngine(flutterEngine!!)
+
+    MethodChannel(flutterEngine!!.getDartExecutor().getBinaryMessenger(), CHANNEL)
+        .invokeMethod("notifyNavToFlutter", "DETAIL")
+
+    MethodChannel(flutterEngine!!.getDartExecutor().getBinaryMessenger(), CHANNEL)
+        .setMethodCallHandler { call, result ->
+          run {
+            when (call.method) {
+              "exitFlutter" -> finish()
+              else -> result.notImplemented()
+            }
+          }
+        }
   }
 
   private fun sendDataToFlutterModule(param: String, screen: String) {
@@ -42,5 +73,23 @@ class MainActivity : AppCompatActivity() {
     startActivity(intent)
   }
 
-}
+  override fun onResume() {
+    super.onResume()
+    flutterEngine!!.lifecycleChannel.appIsResumed()
+  }
 
+  override fun onPause() {
+    super.onPause()
+    flutterEngine!!.lifecycleChannel.appIsInactive()
+  }
+
+  override fun onStop() {
+    super.onStop()
+    flutterEngine!!.lifecycleChannel.appIsPaused()
+  }
+
+  override fun onDestroy() {
+    flutter_view!!.detachFromFlutterEngine()
+    super.onDestroy()
+  }
+}
