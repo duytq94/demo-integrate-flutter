@@ -1,3 +1,4 @@
+import 'package:duyfluttermodule/default_page.dart';
 import 'package:duyfluttermodule/detail_page.dart';
 import 'package:duyfluttermodule/home_page.dart';
 import 'package:flutter/material.dart';
@@ -18,8 +19,9 @@ class _RootPageState extends State<RootPage> {
   // Screen route
   static const HOME = "HOME";
   static const DETAIL = "DETAIL";
+  static const DEFAULT = "DEFAULT";
 
-  Widget currentScreen = Container(child: Center(child: Text('No input from native')));
+  Widget currentScreen = DefaultPage();
   String title = "Default Page";
 
   @override
@@ -47,6 +49,12 @@ class _RootPageState extends State<RootPage> {
           setState(() {
             title = "Detail Page";
             currentScreen = DetailPage();
+          });
+          break;
+        case DEFAULT:
+          setState(() {
+            title = "Default Page";
+            currentScreen = DefaultPage();
           });
           break;
       }

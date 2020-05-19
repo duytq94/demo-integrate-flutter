@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
     flutter_view!!.attachToFlutterEngine(flutterEngine!!)
 
     MethodChannel(flutterEngine!!.getDartExecutor().getBinaryMessenger(), CHANNEL)
-        .invokeMethod("notifyNavToFlutter", "DETAIL")
+        .invokeMethod("notifyNavToFlutter", "DEFAULT")
 
     MethodChannel(flutterEngine!!.getDartExecutor().getBinaryMessenger(), CHANNEL)
         .setMethodCallHandler { call, result ->

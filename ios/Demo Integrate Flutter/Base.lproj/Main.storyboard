@@ -61,6 +61,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="sendButton" destination="Oya-1v-79G" id="Qav-Im-OAE"/>
                         <outlet property="tfString" destination="0Vl-Im-aG8" id="PHZ-mA-Uon"/>
                     </connections>
                 </viewController>

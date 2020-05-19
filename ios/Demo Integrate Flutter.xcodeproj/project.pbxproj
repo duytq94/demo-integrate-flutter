@@ -15,6 +15,7 @@
 		0019A235243DBF20007EBAAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0019A233243DBF20007EBAAB /* LaunchScreen.storyboard */; };
 		0019A240243DBF21007EBAAB /* Demo_Integrate_FlutterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0019A23F243DBF21007EBAAB /* Demo_Integrate_FlutterTests.swift */; };
 		0019A24B243DBF21007EBAAB /* Demo_Integrate_FlutterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0019A24A243DBF21007EBAAB /* Demo_Integrate_FlutterUITests.swift */; };
+		005E07602473B7180048A392 /* MyFlutterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005E075F2473B7180048A392 /* MyFlutterVC.swift */; };
 		00C7BC9E246D4A4F00B17C5A /* App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C7BC9C246D4A3E00B17C5A /* App.framework */; };
 		00C7BC9F246D4A4F00B17C5A /* App.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00C7BC9C246D4A3E00B17C5A /* App.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		520B411E3DD00DE6CF8F34F5 /* Pods_Demo_Integrate_FlutterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33585A532B40948715679281 /* Pods_Demo_Integrate_FlutterTests.framework */; };
@@ -68,6 +69,7 @@
 		0019A246243DBF21007EBAAB /* Demo Integrate FlutterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Demo Integrate FlutterUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0019A24A243DBF21007EBAAB /* Demo_Integrate_FlutterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo_Integrate_FlutterUITests.swift; sourceTree = "<group>"; };
 		0019A24C243DBF21007EBAAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		005E075F2473B7180048A392 /* MyFlutterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFlutterVC.swift; sourceTree = "<group>"; };
 		00C7BC9C246D4A3E00B17C5A /* App.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = App.framework; path = "../duy_flutter_module/build/ios/framework/$(CONFIGURATION)/App.framework"; sourceTree = "<group>"; };
 		13C46E633A8F2C7D248E1B29 /* Pods-Demo Integrate FlutterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo Integrate FlutterTests.release.xcconfig"; path = "Target Support Files/Pods-Demo Integrate FlutterTests/Pods-Demo Integrate FlutterTests.release.xcconfig"; sourceTree = "<group>"; };
 		1636C315A0E87719F00C3238 /* Pods-Demo Integrate Flutter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo Integrate Flutter.release.xcconfig"; path = "Target Support Files/Pods-Demo Integrate Flutter/Pods-Demo Integrate Flutter.release.xcconfig"; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				0019A231243DBF20007EBAAB /* Assets.xcassets */,
 				0019A233243DBF20007EBAAB /* LaunchScreen.storyboard */,
 				0019A236243DBF20007EBAAB /* Info.plist */,
+				005E075F2473B7180048A392 /* MyFlutterVC.swift */,
 			);
 			path = "Demo Integrate Flutter";
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0019A22D243DBF1E007EBAAB /* ViewController.swift in Sources */,
+				005E07602473B7180048A392 /* MyFlutterVC.swift in Sources */,
 				0019A229243DBF1E007EBAAB /* AppDelegate.swift in Sources */,
 				0019A22B243DBF1E007EBAAB /* SceneDelegate.swift in Sources */,
 			);

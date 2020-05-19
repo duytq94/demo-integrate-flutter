@@ -6,6 +6,7 @@ class ViewController: UIViewController {
     var flutterViewController: FlutterViewController!
     var flutterChannel: FlutterMethodChannel!
     
+    @IBOutlet weak var sendButton: UIButton!
     var screenChose: String! = "HOME"
     
     @IBOutlet weak var tfString: UITextField!
@@ -23,49 +24,38 @@ class ViewController: UIViewController {
     }
     
     @IBAction func btnGoFlutter(_ sender: Any) {
-        flutterViewController.modalPresentationStyle = .fullScreen
-        flutterChannel.invokeMethod("notifyNavToFlutter", arguments: screenChose)
-        present(flutterViewController, animated: true, completion: nil)
+        let myflutterVC = MyFlutterVC()
+        myflutterVC.modalPresentationStyle = .fullScreen
+        myflutterVC.param = tfString.text
+        myflutterVC.screenChose = screenChose
+        self.present(myflutterVC, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
-        
+        addFlutterView()
+    }
+    
+    func addFlutterView()  {
         flutterEngine = (UIApplication.shared.delegate as! AppDelegate).flutterEngine
-        flutterViewController = FlutterViewController(engine: flutterEngine, nibName: nil, bundle: nil)
-        flutterChannel = FlutterMethodChannel(name: "com.duytq.demointegrateflutter",
-                                                  binaryMessenger: flutterViewController.binaryMessenger)
-        flutterChannel.setMethodCallHandler({
-            [weak self] (call: FlutterMethodCall, result: FlutterResult) -> Void in
-            switch call.method {
-            case "getBatteryLevel":
-                self?.receiveBatteryLevel(result: result)
-            case "getParam":
-                result(self?.tfString.text)
-            case "exitFlutter":
-                self?.exitFlutter()
-            default:
-                result(FlutterMethodNotImplemented)
-                return
-            }
-        })
-    }
-    
-    func receiveBatteryLevel(result: FlutterResult) {
-        let device = UIDevice.current
-        device.isBatteryMonitoringEnabled = true
-        if device.batteryState == UIDevice.BatteryState.unknown {
-            result(FlutterError(code: "UNAVAILABLE",
-                                message: "Battery info unavailable",
-                                details: nil))
-        } else {
-            result(Int(device.batteryLevel * 100))
-        }
-    }
-    
-    func exitFlutter() {
-        self.dismiss(animated: true, completion: nil)
+        let myFlutterView = FlutterViewController(engine: flutterEngine, nibName: nil, bundle: nil)
+        addChild(myFlutterView)
+        view.addSubview(myFlutterView.view)
+        self.didMove(toParent: self)
+        myFlutterView.view.translatesAutoresizingMaskIntoConstraints = false
+        
+        let top = NSLayoutConstraint(item: myFlutterView.view!, attribute: NSLayoutConstraint.Attribute.top, relatedBy: NSLayoutConstraint.Relation.equal, toItem: sendButton, attribute: NSLayoutConstraint.Attribute.bottom, multiplier: 1.0, constant: 10)
+        
+        let bottom = NSLayoutConstraint(item: myFlutterView.view!, attribute: NSLayoutConstraint.Attribute.bottom, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self.view, attribute: NSLayoutConstraint.Attribute.bottom, multiplier: 1.0, constant: -10)
+        
+        let leading = NSLayoutConstraint(item: myFlutterView.view!, attribute: NSLayoutConstraint.Attribute.leading, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self.view, attribute: NSLayoutConstraint.Attribute.leading, multiplier: 1.0, constant: 10)
+        
+        let trailing = NSLayoutConstraint(item: myFlutterView.view!, attribute: NSLayoutConstraint.Attribute.trailing, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self.view, attribute: NSLayoutConstraint.Attribute.trailing, multiplier: 1.0, constant: -10)
+        
+        self.view.addConstraints([bottom, leading, trailing, top])
+        self.view.setNeedsLayout()
+        self.view.layoutIfNeeded()
     }
     
     func hideKeyboardWhenTappedAround() {
