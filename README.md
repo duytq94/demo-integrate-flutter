@@ -14,7 +14,7 @@ These method don't requires other developer working on the project to have a loc
 ## Feature
 
 - Add Flutter to existing native project (Android & iOS).
-- Running multiple Flutter instances (partial screen & full screen).
+- Running multiple Flutter instances (different engine, entrypoint) with partial screen & full screen.
 
 ## How to run
 
