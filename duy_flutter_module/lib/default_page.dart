@@ -18,6 +18,7 @@ class _DefaultPageState extends State<DefaultPage> {
 
   @override
   Widget build(BuildContext context) {
+    print("duyduy build DefaultPage");
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,

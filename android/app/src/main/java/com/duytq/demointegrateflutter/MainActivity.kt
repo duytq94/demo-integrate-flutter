@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myflutter.MyFlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
+import io.flutter.embedding.engine.FlutterEngineCache
 import io.flutter.embedding.engine.dart.DartExecutor
 import io.flutter.plugin.common.MethodChannel
 import kotlinx.android.synthetic.main.activity_main.*
@@ -15,6 +16,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
   private val CHANNEL = "com.duytq.demointegrateflutter"
   private var flutterEngine: FlutterEngine? = null
+  private val PARTIAL_SCREEN_ENGINE_ID = "partialScreenEngineId"
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -41,9 +43,7 @@ class MainActivity : AppCompatActivity() {
 
   private fun setUpFlutter() {
     if (flutterEngine == null) {
-      // Use new engine instead of cache engine from MainApplication
-      // Use the same engine will cause some wrong behavior like can't interact, wrong size flutter view
-      flutterEngine = FlutterEngine(this)
+      flutterEngine = FlutterEngineCache.getInstance().get(PARTIAL_SCREEN_ENGINE_ID)
       flutterEngine!!
           .dartExecutor
           .executeDartEntrypoint(

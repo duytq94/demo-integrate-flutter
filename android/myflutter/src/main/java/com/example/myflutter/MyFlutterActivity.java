@@ -20,12 +20,12 @@ import io.flutter.plugin.common.MethodChannel;
 
 public class MyFlutterActivity extends FlutterActivity {
   private static final String CHANNEL = "com.duytq.demointegrateflutter";
-  private static final String ENGINE_ID = "demointegrateflutter";
+  private static final String FULL_SCREEN_ENGINE_ID = "fullScreenEngineId";
 
   @Override
   protected void onResume() {
     super.onResume();
-    new MethodChannel(FlutterEngineCache.getInstance().get(ENGINE_ID).getDartExecutor().getBinaryMessenger(), CHANNEL)
+    new MethodChannel(FlutterEngineCache.getInstance().get(FULL_SCREEN_ENGINE_ID).getDartExecutor().getBinaryMessenger(), CHANNEL)
         .invokeMethod("notifyNavToFlutter", getIntent().getStringExtra("screen"));
   }
 
@@ -62,7 +62,7 @@ public class MyFlutterActivity extends FlutterActivity {
   @Nullable
   @Override
   public FlutterEngine provideFlutterEngine(@NonNull Context context) {
-    return FlutterEngineCache.getInstance().get(ENGINE_ID);
+    return FlutterEngineCache.getInstance().get(FULL_SCREEN_ENGINE_ID);
   }
 
   private int getBatteryLevel() {

@@ -3,11 +3,13 @@ import Flutter
 
 @UIApplicationMain
 class AppDelegate: FlutterAppDelegate {
-    lazy var flutterEngine = FlutterEngine(name: "my flutter engine")
+    lazy var flutterEnginePartialScreen = FlutterEngine(name: "flutterEnginePartialScreen")
+    lazy var flutterEngineFullScreen = FlutterEngine(name: "flutterEngineFullScreen")
     
     override func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Pre-warm flutter
-        flutterEngine.run();
+        flutterEnginePartialScreen.run(withEntrypoint: "partialScreenEntryPoint");
+        flutterEngineFullScreen.run();
         
         return super.application(application, didFinishLaunchingWithOptions: launchOptions);
     }

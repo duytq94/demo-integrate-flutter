@@ -2,7 +2,8 @@ import UIKit
 import Flutter
 
 class ViewController: UIViewController {
-    var flutterEngine: FlutterEngine!
+    var flutterEnginePartialScreen: FlutterEngine!
+    var flutterEngineFullScreen: FlutterEngine!
     var flutterViewController: FlutterViewController!
     var flutterChannel: FlutterMethodChannel!
     
@@ -24,7 +25,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func btnGoFlutter(_ sender: Any) {
-        let myflutterVC = MyFlutterVC()
+        flutterEngineFullScreen = (UIApplication.shared.delegate as! AppDelegate).flutterEngineFullScreen
+        let myflutterVC = MyFlutterVC(engine: flutterEngineFullScreen, nibName: nil, bundle: nil)
         myflutterVC.modalPresentationStyle = .fullScreen
         myflutterVC.param = tfString.text
         myflutterVC.screenChose = screenChose
@@ -38,8 +40,8 @@ class ViewController: UIViewController {
     }
     
     func addFlutterView()  {
-        flutterEngine = (UIApplication.shared.delegate as! AppDelegate).flutterEngine
-        let myFlutterView = FlutterViewController(engine: flutterEngine, nibName: nil, bundle: nil)
+        flutterEnginePartialScreen = (UIApplication.shared.delegate as! AppDelegate).flutterEnginePartialScreen
+        let myFlutterView = FlutterViewController(engine: flutterEnginePartialScreen, nibName: nil, bundle: nil)
         addChild(myFlutterView)
         view.addSubview(myFlutterView.view)
         self.didMove(toParent: self)

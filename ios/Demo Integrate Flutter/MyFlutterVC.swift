@@ -2,7 +2,6 @@ import UIKit
 import Flutter
 
 class MyFlutterVC: FlutterViewController {
-    var flutterEngine: FlutterEngine!
     var flutterChannel: FlutterMethodChannel!
     var param: String!
     var screenChose: String!
