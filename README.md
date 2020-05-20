@@ -3,7 +3,7 @@
 ## Description
 
 Demo add Flutter to existing Android and iOS native apps.<br/>
-There are mutiple options to embed flutter module in existing app and I'll choose:<br/>
+There are mutiple options to embed Flutter module in existing app and I'll choose:<br/>
 
 - iOS: Option C - Embed application and plugin frameworks in Xcode and Flutter framework with CocoaPods.
 - Android: Option A - Depend on the Android Archive (AAR).
@@ -14,12 +14,12 @@ These method don't requires other developer working on the project to have a loc
 ## Feature
 
 - Add Flutter to existing native project (Android & iOS).
-- Running multiple Flutter instances and running in partial screen views.
+- Running multiple Flutter instances (partial screen & full screen).
 
 ## How to run
 
 - Clone this repository.
-- Go to flutter module (duy_flutter_module).
+- Go to Flutter module (duy_flutter_module).
 - Run `flutter pub get`, `flutter build aar`, `flutter build ios-framework` to regenerate AAR and Framework files.
 
 ##### Android
@@ -34,11 +34,17 @@ These method don't requires other developer working on the project to have a loc
 
 ## Demo
 
-https://youtu.be/rEfIceRjEvs
+https://youtu.be/8u6MEziPCdY
+
+## Screenshots
+
+![android](screenshots/android.gif)
+
+![ios](screenshots/ios.gif)
 
 ## Note about Caching and Pre-warm FlutterEngine
 
 - Cache help you load Flutter faster from the 2nd onwards.
 - Pre-warm help you warm up a FlutterEngine before arriving.
-- But pre-warm execute entire your flutter screen (initState, build...), so if you need some param from native code before doing an action in flutter (e.g. get accessToken from native to load data from api in dart) you can't put your fetch api function in initState as normal.
-- At this time, you need a trigger from native code to execute fetch api function in dart (invoke in MethodChannel from native code and setMethodCallHandler in dart code to do this).
+- But pre-warm execute entire your Flutter screen (initState, build...) as normal except attach to UI, so if you need some param from native code before doing an action in Flutter (e.g. get accessToken from native to load data from api in Dart) you can't put your fetch api function in initState as normal.
+- At this time, you need a trigger from native code to execute fetch api function in Dart (invoke in MethodChannel from native code and setMethodCallHandler in Dart code to do this).
