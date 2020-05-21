@@ -20,7 +20,7 @@ These method don't requires other developer working on the project to have a loc
 
 - Clone this repository.
 - Go to Flutter module (duy_flutter_module).
-- Run `flutter pub get`, `flutter build aar`, `flutter build ios-framework` to regenerate AAR and Framework files.
+- Run `flutter pub get`, `flutter build aar`, `flutter build ios-framework --cocoapods` to regenerate AAR and Framework files.
 
 ##### Android
 
