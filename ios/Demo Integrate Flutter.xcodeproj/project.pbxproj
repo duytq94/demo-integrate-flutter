@@ -609,7 +609,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/FlutterPluginRegistrant\"",
 					"$(PROJECT_DIR)/../duy_flutter_module/build/ios/framework/$(CONFIGURATION)/",
 				);
 				INFOPLIST_FILE = "Demo Integrate Flutter/Info.plist";
@@ -632,7 +631,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/FlutterPluginRegistrant\"",
 					"$(PROJECT_DIR)/../duy_flutter_module/build/ios/framework/$(CONFIGURATION)/",
 				);
 				INFOPLIST_FILE = "Demo Integrate Flutter/Info.plist";
