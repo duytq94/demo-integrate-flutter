@@ -4,4 +4,5 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(FullScreen());
 
+@pragma('vm:entry-point')
 void partialScreenEntryPoint() => runApp(PartialScreen());
