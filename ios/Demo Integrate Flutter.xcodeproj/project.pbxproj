@@ -48,8 +48,8 @@
 		005E075F2473B7180048A392 /* MyFlutterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFlutterVC.swift; sourceTree = "<group>"; };
 		1636C315A0E87719F00C3238 /* Pods-Demo Integrate Flutter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo Integrate Flutter.release.xcconfig"; path = "Target Support Files/Pods-Demo Integrate Flutter/Pods-Demo Integrate Flutter.release.xcconfig"; sourceTree = "<group>"; };
 		2F85E222E3467032DF42A0BC /* Pods-Demo Integrate Flutter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo Integrate Flutter.debug.xcconfig"; path = "Target Support Files/Pods-Demo Integrate Flutter/Pods-Demo Integrate Flutter.debug.xcconfig"; sourceTree = "<group>"; };
-		691CD0F629F3A1160045247C /* App.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = App.xcframework; path = ../duy_flutter_module/build/ios/framework/Debug/App.xcframework; sourceTree = "<group>"; };
-		691CD0F729F3A1160045247C /* Flutter.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Flutter.xcframework; path = ../duy_flutter_module/build/ios/framework/Debug/Flutter.xcframework; sourceTree = "<group>"; };
+		691CD0F629F3A1160045247C /* App.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = App.xcframework; path = "../duy_flutter_module/build/ios/framework/$(CONFIGURATION)/App.xcframework"; sourceTree = "<group>"; };
+		691CD0F729F3A1160045247C /* Flutter.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Flutter.xcframework; path = "../duy_flutter_module/build/ios/framework/$(CONFIGURATION)/Flutter.xcframework"; sourceTree = "<group>"; };
 		E5ACC078B2388B9497AF7CB8 /* Pods_Demo_Integrate_Flutter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo_Integrate_Flutter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
