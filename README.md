@@ -3,15 +3,14 @@
 ## Description
 
 Demo add Flutter to existing Android and iOS native apps.<br/>
-There are mutiple options to embed Flutter module in existing app and I'll choose:<br/>
+There are multiple options to embed Flutter module in existing app and I'll choose:<br/>
 
 - iOS: Option B - Embed frameworks in Xcode.<br>
-Why? Because this option can use $(CONFIGURATION) to dynamic set build mode (debug, release)
+Why? Because this option can use $(CONFIGURATION) to dynamically set build mode (debug, release), and later you can push and get these frameworks through any storage (like S3) by pod file. This is suitable for multi-platform development scenarios because a native iOS developer doesn't need to pull and know about Flutter module, it's just a framework to get through pod file like other iOS libs.
 
-- Android: Option A - Depend on the Android Archive (AAR).
-  <br/>
+- Android: Option A - Depend on the Android Archive (AAR).<br>
+This option allows your team to build the host app without installing the Flutter SDK. You can then distribute the artifacts from a local or remote repository (similar framework in iOS).
 
-These method don't requires other developer working on the project to have a locally installed version of the Flutter SDK to run the project.
 
 ## Feature
 
@@ -23,6 +22,7 @@ These method don't requires other developer working on the project to have a loc
 - Clone this repository.
 - Go to Flutter module (duy_flutter_module).
 - Run `flutter pub get`, `flutter build aar`, `flutter build ios-framework` to regenerate AAR and Framework files.
+- You must run these command every time you make code changes in your Flutter module to see affect when run in native.
 
 ### Android
 
