@@ -1,16 +1,3 @@
-PODS:
-  - Flutter (1.17.100)
+PODFILE CHECKSUM: e342b0bf090ce5e1d961571c3caf849d58e8c661
 
-DEPENDENCIES:
-  - Flutter (from `../duy_flutter_module/build/ios/framework/Release/Flutter.podspec`)
-
-EXTERNAL SOURCES:
-  Flutter:
-    :podspec: "../duy_flutter_module/build/ios/framework/Release/Flutter.podspec"
-
-SPEC CHECKSUMS:
-  Flutter: b4047f7b65597e615c080c865f87b6023d92d301
-
-PODFILE CHECKSUM: da50d83e50fefb6b875404b038e16c6144287b14
-
-COCOAPODS: 1.9.1
+COCOAPODS: 1.11.3

@@ -4,17 +4,4 @@
 target 'Demo Integrate Flutter' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-  
-  # Pods for Demo Integrate Flutter
-  pod 'Flutter', :podspec => '../duy_flutter_module/build/ios/framework/Release/Flutter.podspec'
-
-  target 'Demo Integrate FlutterTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'Demo Integrate FlutterUITests' do
-    # Pods for testing
-  end
-
 end

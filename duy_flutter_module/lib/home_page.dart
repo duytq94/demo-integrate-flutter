@@ -1,5 +1,5 @@
 import 'package:duyfluttermodule/root_page.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 
 class HomePage extends StatefulWidget {
@@ -52,12 +52,12 @@ class _HomePageState extends State<HomePage> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          RaisedButton(
+          CupertinoButton(
             child: Text('Get Battery Level'),
             onPressed: _getBatteryLevel,
           ),
           Text(_batteryLevel),
-          RaisedButton(
+          CupertinoButton(
             child: Text('Get Param'),
             onPressed: _getParam,
           ),
