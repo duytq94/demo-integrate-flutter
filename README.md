@@ -38,9 +38,8 @@ https://youtu.be/8u6MEziPCdY
 
 ## Screenshots
 
-![android](screenshots/android.gif)
-
-![ios](screenshots/ios.gif)
+<img src="screenshots/android.gif" alt= "android" height="500">
+<img src="screenshots/ios.gif" alt= "ios" height="500">
 
 ## Note about Caching and Pre-warm FlutterEngine
 
